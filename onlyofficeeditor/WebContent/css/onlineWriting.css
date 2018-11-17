@@ -1,0 +1,173 @@
+/*包含“导入、导出”等的工具条*/
+.onlineWriting-toolBar {
+  height: 50px;
+  padding:15px;
+  margin-top:10px;
+  margin-bottom:10px;
+  font-size: 14px;
+}
+
+/*竖线*/
+.shuxian {
+  margin-top:-3px;
+}
+
+
+/*左侧的编辑区*/
+.editArea-div {
+  height :700px;
+  width: 67%;
+  margin-bottom: 10px;
+  margin-right: 1%;
+}
+
+
+/*右侧的文件搜索区*/
+.searchArea-div {
+  height :700px;
+  width :32%;
+  margin-bottom: 10px;
+}
+
+/*设置“导入文件”的input为隐藏*/
+.file-upload {
+  display: none;
+}
+
+/*智能检索的输入框*/
+.currSentenceArea{
+  width: 80%;
+  float:left;
+}
+
+/*“查询”按钮*/
+.AISearchBtn{
+  float: right;
+  margin-right: 5px;
+}
+
+/*导入对话框*/
+#importDialog{
+	font-size: 15px;
+}
+
+.ui-dialog-title{
+	font-size: 15px;
+}
+
+#importButton{
+	width: 80px;
+}
+
+#import_author, #import_type{
+	width: 150px;
+}
+
+/*搜索框的div*/
+.searchSentence-div{
+	height: 54px;
+}
+
+
+
+/*右侧导航栏的每个小条目*/
+.list-group-item{
+	width:80px;
+	height:50px;
+	word-wrap:break-word;	
+    margin: 1px;
+    padding: 9px;
+    text-align: -webkit-center;
+}
+
+/*给每个小栏目的字设置字号，诸如"全部"“提纲”“观点”等字*/
+.list-group-item-heading{
+	font-size: 14px;
+}
+
+/*设置黑色的“分类”样式*/
+.black-fenlei-div{
+	background-color: rgba(102, 102, 102, 1);
+	font-family: '微软雅黑 Bold', '微软雅黑 Regular', '微软雅黑';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+#exportFile{
+	width: 60px;
+}
+
+/*搜索结果展示栏*/
+.query-result-div{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-family: '微软雅黑';
+    font-weight: 400;
+    font-style: normal;
+    color: #787878;
+    line-height: 24px;
+    font-size: 15px;
+}
+/**/
+.konghang{
+	height:18px;
+}
+/* 以下是匹配文档展示栏*/
+div.content
+{
+    border: #000000 0px solid;
+    height: 590px;
+    overflow-y: auto;
+    width: 353px;
+}
+
+.fixedHeader 
+{
+    white-space: nowrap;
+}
+
+.fixedHeader tr 
+{
+    height: auto;
+    position: relative;
+}
+
+.fixedHeader tr td 
+{
+    background-color: #778899;
+    border: #000000 1px solid;
+    text-align: center;
+}
+
+tbody.scrollContent 
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 370px;
+}
+
+.scrollContent tr td 
+{
+    vertical-align: top;
+    text-align: left;/*文字左对齐*/
+}
+
+/*右侧展示匹配到的文档中的灰色条*/
+.my-gray-tr{
+    background-color: rgba(248, 248, 248, 1);
+    border: none;
+    border-radius: 0px;
+    font-family: '微软雅黑';
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 14px;
+    color: #787878;
+    white-space: nowrap;	
+}
+
+.full-width-table{
+	width:100%;
+}
+/* 以上是匹配文档展示栏*/

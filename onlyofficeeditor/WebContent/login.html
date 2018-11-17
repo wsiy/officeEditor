@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>首页登录</title>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="./css/bootstrap-4.0.0-dist/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/loginPage.css">
+    <link rel="stylesheet" href="./css/common.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 页眉 -->
+        <div class="row-noMargin loginHead-div">
+            <div class="col-1">
+                <img src="images/loginPage/guohui.png" width="72" height="65" class="d-inline-block align-top" alt="">
+            </div>
+            <div class="col-9 loginSystemName">智能公文辅助决策系统 </div>
+        </div>
+        <!-- 中间 -->
+        <div class="loginBody-div row">
+            <div class="ml-md-auto">
+                <img src="images/loginPage/duihao.png" class="duihao-img">
+            </div>
+            <div class="ml-md-auto">
+                <form class="loginForm-div" id="loginFormInfo" method="post" enctype="multipart/form-data">
+                    <div class="form-group form-name">
+                        <label>用户登录</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="uid" type="text" placeholder="请输入登录账号" class="myform-control-lg" required ng-minlength="1">
+                    </div>
+                    <div class="form-group">
+                        <input id="pwd" type="password" placeholder="请输入登录密码" class="myform-control-lg" required ng-minlength="1">
+                    </div>
+                    <div>
+                        <a class="forgetPwd" href="#">忘记密码？</a>
+                    </div>
+                    <!-- 验证码区域 -->
+                    <div class="row justify-content-center">
+                        <div class="col-7">
+                            <input type="text" class="verify-input" id="verify_input" placeholder="请输入验证码" required ng-minlength="1">
+                        </div>
+                        <div class="col">
+                            <input type="button" class="verify-code" id="verify_code" onclick="createCode()">
+                        </div>
+                    </div>  
+                    
+                    
+                    <!-- 自动登录  -->
+                    <div class="form-group form-check autoLogin">
+                        <input type="checkbox" class="form-check-input" id="autoLogin">
+                        <label class="form-check-label" for="autoLogin">自动登录</label>
+                    </div>
+                    <!-- 提交按钮 -->
+                    <div>
+                        <button class="loginSubmit-btn" type="button" class="btn btn-secondary btn-lg" ng-disabled="loginFormInfo.$invalid,validate()" onclick="validate()">立即登录</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 页脚 -->
+        <div class="footer foot-row row">
+            <div class="col-1">
+                <img class="golaxy-png" src="./images/loginPage/zktj.png" width="44px" height="54px">
+            </div>
+            <div class="col-10 ">
+                <p class="footword-div">
+                    <span>本站由&nbsp;</span>
+                    <span class="zktj">中科天玑</span>
+                    <span>&nbsp;提供技术支持与安全服务</span>
+                </p>
+                <p class="footword-div">
+                    <span>&nbsp;@中科天玑数据科技股份有限公司&nbsp; &nbsp; ▏&nbsp; 备案号：京ICP备11029513号&nbsp; &nbsp;&nbsp; ▏&nbsp;&nbsp; 联系电话：010-688-0088</span>
+                </p>
+            </div>
+            <div class="col-1">
+                <img class="qrCode-img" src="./images/loginPage/erweima.png" width="36px" height="36px">
+                <p>关注我们</p>
+            </div>
+        </div>
+    </div>
+    <!-- bootstrap -->
+    <script src="./scripts/bootstrap/jquery-1.11.3.min.js"></script>
+    <script src="./scripts/bootstrap/bootstrap.js"></script>
+    <!-- angularJS -->
+    <script src="./scripts/angularJS/angular.min.js"></script>
+    <script src="./scripts/angularJS/angular-route.min.js"></script>
+    <script src="./scripts/angularJS/angular-cookies.min.js"></script>
+    <!-- myScript -->
+    <script src="./scripts/myScript/login.js"></script>
+</body>
+
+</html>

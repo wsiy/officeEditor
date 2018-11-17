@@ -1,0 +1,153 @@
+<div class="white-bg  search-div-lg search-div">
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 起始时间:</div>
+    <div class="col-1"> 
+    	<input id="begin_date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    </div>
+     <div class="col-1"> </div>
+    <div class="col-1"> 结束时间:</div>
+    <div class="col-1"> 
+        <input id="end_date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    </div>
+    <div style="display:inline; padding-left:100px;">
+           <button ng-click="querycorebyDate()">检索</button>    
+     </div>
+  </div>
+  <hr>
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 文种:</div>
+    <div class="col-11"> 
+      <button ng-click="initPage()">全部</button>
+      <button ng-click="querycoreAllReport('总结报告')">总结报告</button>
+      <button ng-click="querycoreAllReport('辅助授课')">辅助授课</button>
+      <button ng-click="querycoreAllReport('其他')">其他</button>
+    </div> 
+  </div>
+  <hr>
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 分类:</div>
+    <div class="col-11"> 
+      <button ng-click="initPage()">全部</button>
+      <button ng-click="querycorebyclass('提纲')">提纲</button>
+      <button ng-click="querycorebyclass('观点')">观点</button>
+      <button ng-click="querycorebyclass('其他')">其他</button>
+    </div> 
+  </div>
+  <hr>
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 表述:</div>
+    <div class="col-11"> 
+      <button ng-click="initPage()">全部</button>
+      <button ng-click="querycorebyexpress('经验体会')">经验体会</button>
+      <button ng-click="querycorebyexpress('重要意义')">重要意义</button>
+      <button ng-click="querycorebyexpress('问题不足')">问题不足</button>
+      <button ng-click="querycorebyexpress('认识举措')">认识举措</button>
+      <button ng-click="querycorebyexpress('后勤保障')">后勤保障</button>
+    
+    </div> 
+  </div>
+ 
+</div>
+
+<div class="white-bg showPaper-div">
+    <nav class="function-bar row-noMargin">
+      <div class="col-1">
+          <button ng-click="create()" class="my-btn-blue">新建</button>
+      </div>
+      <div class="col-7">
+          <button class="my-btn-gray" ng-click="multidelete()">删除</button>
+      </div>
+      <a class="myclass" id="count" name="{{pbc.perList.length}}" value="hhh" style="display:none"></a>
+      <div class="col-1">
+          <button class="orderByTime" ng-click="changeDirection()">时间
+        <img class="down" src="./images/paperList/down.png">
+        <img class="up noDisplay" src="./images/paperList/up.png"></button>
+      </div>
+      <form class="form-inline">
+          <input id="corefilesearch" placeholder="请输入文件名搜索">
+          <button ng-click="querycorebyName()" type="submit">Search</button>
+      </form>
+    </nav>
+    
+<div id="hideorshow" style="display: none">
+    <div> 
+    <input id="create_date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    <select id="create_filename" ng-change="changefilename()" ng-model="filename"></select>
+    <select id="create_author" ng-change="changeauthor()" ng-model="author"></select>
+    <select id="create_type" ng-change="changetype()" ng-model="type"></select>
+    <select id="create_class" ></select>
+    <select id="create_expre" ></select>
+    
+	<input id="create_content" type="text" name="create_content" placeholder="内容"/>
+    <input id="create_char" type="text" name="create_char" placeholder="特点"/>
+    <input id="create_anay" type="text" name="create_anay" placeholder="分析"/>
+    
+    </div>
+    </br>
+   <div style="float: right;">
+       <button class="my-btn-gray" ng-click="create_cancel()">取消</button>
+       <button class="my-btn-blue" ng-click="create_save()">保存</button>
+    </div>
+      </br>
+       </br>
+</div>
+
+    <div class="showPaperDetail-sm">
+	    <table class="table table-striped  table-bordered ">
+	      <thead class="bluetable-th">
+	        <tr>
+	          <th></th>
+	          <th>时间</th>
+	          <th>文件名</th>
+	          <th>作者</th>
+	          <th>文种</th>
+	          <th>分类</th>
+	          <th>表述</th>
+	          <th>内容</th>
+	          <th>特点</th>
+	          <th>分析</th>
+	          <th>+</th>
+	          <th>操作</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <tr ng-repeat="a in pbc.perList">
+	          <td ><input id="multi_{{$index}}"  name="{{a.ID}}" value="pbc.startIndex+{{$index}}+1" type="checkbox"/></td>
+	          <td ng-bind="a.createDate"></td>
+	          <td ng-bind="a.document.fileName" class="th-left"></td>
+	          <td ng-bind="a.document.author"></td>
+	          <td ng-bind="a.document.documentType.name"></td>
+	          <td ng-bind="a.classfication.name"></td>
+	          <td ng-bind="a.expression.name"></td>
+	          <td ng-bind="a.content"></td>
+	          <td ng-bind="a.characteristic"></td>
+	          <td ng-bind="a.analyse"></td>
+	          <td></td>
+	          
+	          <td>
+	            <div class="row-noMargin fourBtn-td-coreDocument">
+				<!-- 	            打开word显示 -->
+	              <a title="在线查看" class="view-btn common-btn"  href="./DownloadServlet?fileNameWithExt={{a.document.fileName}}.docx" ></a>
+<!-- 	 response[data]无法接收String,   viewOnLine.html 无法嵌入框架       
+    <a title="在线查看"  ng-click="viewOnline(a.document.fileName)"   href="viewOnLine.html" class="view-btn common-btn" ></a> -->
+	             
+	              <a title="删除" ng-click="delete($index, a.ID)"  class="remove-btn common-btn"></a>              
+	            </div>
+	          </td>
+	          
+	        </tr>
+	        <tr>
+	      </tbody>
+	    </table>
+	      
+	   <div id="pagingSectionInMajor" style="float:right">
+			<a ng-href="" ng-click="firstPage()">首页</a>  
+			<a ng-href="" ng-click="previousPage()">上一页</a> 
+			<a ng-href="" ng-click="nextPage()">下一页</a>   
+			<a ng-href="" ng-click="lastPage()">尾页</a>	
+		</div>
+		<div style="float:left"> 共 {{pbc.totalRecord}}条</div>
+		<div align="center"> 第{{pbc.pageNum}}页（共{{pbc.totalPage}}页）</div>
+  </div>
+  
+</div>

@@ -1,0 +1,96 @@
+<div class="row-noMargin">
+    <!-- 左侧按钮组 -->
+    <div class="white-bg personalCenter-left">
+        <div>
+            <button class="btn-block mybtn-block activeBlock-Btn" autofocus="autofocus" id="userInf-btn" ng-click="showUserInfo()">
+              <img id="userBlack-img" class="black-img noDisplay" src="./images/personalCenter/jiantou_black.png">
+              <img id="userWhite-img" class="white-img" src="./images/personalCenter/jiantou_white.png">
+                                     用户信息
+            </button>
+        </div>
+        <div>
+            <button class="btn-block mybtn-block unactiveBlock-Btn" id="function-btn" ng-click="showFunction()" >
+             <img id="funcBlack-img" class="black-img" src="./images/personalCenter/jiantou_black.png">
+              <img id="funcWhite-img" class="white-img noDisplay" src="./images/personalCenter/jiantou_white.png">
+                                功能权限</button>
+        </div>
+    </div>
+    
+    <div class="white-bg personalCenter-right" ng-hide="hideUserDiv">
+        <div class="myMiddle-form">
+            <form name="changePwdForm">
+                <div class="myTableName" id="test">
+                    <p >用户信息</p>
+                </div>
+                <div class="myForm-group row-noMargin">
+                    <div class="myformLabel-div" >
+                        <label  class="myformLabel-text">用户名：&nbsp</label>
+                    </div>
+                    <div  class="myformInput-div " >
+                        <input class="myformInput-text" type="text" ng-model="user.id" required ng-minlength="1">
+                    </div>
+                </div>
+                <div class="myForm-group row-noMargin">
+                    <div class="myformLabel-div" >
+                        <label  class="myformLabel-text">密码：&nbsp</label>
+                    </div>
+                    <div  class="myformInput-div " >
+                        <input class="myformInput-text" type="password" ng-model="user.pwd" required ng-minlength="1">
+                    </div>
+                </div>
+                 <div class="myForm-group row-noMargin">
+                    <div class="myformLabel-div" >
+                        <label  class="myformLabel-text">确认密码：&nbsp</label>
+                    </div>
+                    <div  class="myformInput-div " >
+                        <input class="myformInput-text" type="password" ng-model="user.confirmPwd" required ng-minlength="1">
+                    </div>
+                </div>
+                <div class="btnsUnderForm-div">
+                  <button type="reset" class="my-btn-gray bottomRight1-btn">重置</button>
+                  <button type="submit" class="my-btn-blue" ng-disabled="changePwdForm.$invalid || user.pwd != user.confirmPwd" ng-click="submit()">保存</button>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+    <div class="white-bg personalCenter-right" ng-hide="hideFuncDiv"> 
+        <div class="myMiddle-form">
+            <form>
+                <div class="myTableName">
+                    <p>功能权限</p>
+                </div>
+                <div class="myForm-group row-noMargin">
+                    <div class="myformLabel-div">
+                        <label class="myformLabel-text" for="exampleInputEmail1">词语联想：&nbsp</label>
+                    </div>
+                    <div class="myformRadio-div">
+                        <label class="radio-inline">
+                            <input class="myRadio" type="radio" name="wordImage" id="startImage" value="startImage" checked> 开启
+                        </label>
+                        <label class="radio-inline">
+                            <input class="myRadio" type="radio" name="wordImage" id="stopImage" value="stopImage"> 关闭
+                        </label>
+                    </div>
+                </div>
+                <div class="myForm-group row-noMargin">
+                    <div class="myformLabel-div">
+                        <label class="myformLabel-text" for="password">文章检索：&nbsp</label>
+                    </div>
+                     <div class="myformRadio-div">
+                        <label class="radio-inline">
+                            <input class="myRadio" type="radio" name="paperSearch" id="startSearch" value="startSearch" checked> 开启
+                        </label>
+                        <label class="radio-inline">
+                            <input class="myRadio" type="radio" name="paperSearch" id="stopSearch" value="stopSearch"> 关闭
+                        </label>
+                    </div>
+                </div>
+                <div class="btnsUnderForm-div">
+                    <button type="reset" class="my-btn-gray bottomRight1-btn">重置</button>
+                    <button type="submit" class="my-btn-blue">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

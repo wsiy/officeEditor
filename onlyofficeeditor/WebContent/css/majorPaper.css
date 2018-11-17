@@ -1,0 +1,33 @@
+/*head下面高度较大的搜索区*/
+.search-div-lg {
+  height: 180px;
+}
+
+/*眼睛模样的按钮*/
+.view-btn {
+  background-image:url(../images/majorPaper/eye.png);
+}
+
+/*错号模样的删除按钮*/
+.false-btn { 
+  background-image:url(../images/majorPaper/deleteItem.png);
+}
+
+/**三个按钮的区域**/
+.threeBtn-td{
+  width: 115px;
+}
+
+/*新建核心文章输入框*/
+#create_content, #create_char, #create_anay{
+	height: 25px;
+	width: 170px;
+}
+
+#hideorshow{
+	font-size: 14px;
+}
+
+#hideorshow #create_filename, #hideorshow #create_author, #hideorshow #create_type, #hideorshow #create_class, #hideorshow #create_expre {
+   height: 25px;
+}

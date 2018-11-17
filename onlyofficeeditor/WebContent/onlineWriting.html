@@ -1,0 +1,106 @@
+<!-- 操作区 -->
+<div class="white-bg onlineWriting-toolBar">
+	<nav class="row-noMargin toolBarFont">
+		<div class="col-1">
+			<input id="importButtonTop" type="button" class="my-btn-blue" value="导入" ng-click="uploadFileFunc()">
+			<div class="file-upload">
+			  <!-- <input type="file"  id="importFile" name="file"  accept=".docx,.xlsx,.pptx,.ppsx,.txt" /> -->
+			  <!--by liuyy, currently we only support docx format-->
+			  <input type="file"  id="importFile" name="file"  accept=".docx" />
+			</div>
+		</div>
+		<div class="col-1">
+			<input id="exportFile" type="button" class="my-btn-gray" value="导出">
+		</div>
+		<div class="shuxian">
+			<img alt="竖线" src="./images/onlineWriting/shuxian.png">
+		</div>
+		<div class="col-1">
+			<input type="button" class="my-btn-gray" value="语音录入">
+		</div>
+		<div class="col-1">
+			<input type="button" class="my-btn-gray" value="智能写作">
+		</div>
+		<div class="col-1">
+			<input type="button" class="my-btn-gray" value="自主学习">
+		</div>
+	</nav>
+</div>
+
+<div id="importDialog" title="导入公文"  style="display: none" >
+	<form>
+		<!-- <p><input type="file" id="importFile" name="file"  accept=".docx,.xlsx,.pptx,.ppsx,.txt" /></p> -->
+		<p>作&nbsp;&nbsp;者&nbsp;&nbsp;：<input type="text" id="import_author" /></p>
+		<p>文&nbsp;&nbsp;种&nbsp;&nbsp;：
+			<select id="import_type" >
+				<option value ="总结报告">总结报告</option> 
+				<option value ="辅助授课">辅助授课</option> 
+				<option value ="其他">其他</option> 
+			</select>
+		</p>
+		<div style="float: right;">
+			<button class="my-btn-gray" ng-click="import_paper_cancel()">取消</button>
+			<button id="importButton" class="my-btn-blue" ng-click="import_paper_save()">导入文件</button>
+		</div>
+	</form>
+</div>
+
+
+<!-- 下方的编辑区、检索区、调阅区 -->
+<div class="row-noMargin">
+	<!-- 调阅区 -->
+	<div class="white-bg form row-8 editArea-div">
+		<div class="iframeEditorClass" id="iframeEditor"></div> 
+	</div>
+ 
+	<!-- 检索区  -->
+	<div class="white-bg row-4 searchArea-div">
+		<p class="margin5px">请在下面输入框中输入句子进行智能检索：</p>
+		<div class="searchSentence-div">
+		  <textarea class="currSentenceArea margin5px" id="AISearchSentence"> </textarea>
+		  <input class="AISearchBtn" type="button" ng-click="AISearch()" value="查询">
+		</div>
+		<!-- 匹配上的文档展示区 -->
+		<div class="content">
+			<table class="full-width-table" cellspacing="0">
+				<tbody class="scrollContent" ng-repeat="a in documents">
+					<!-- 显示文本内容并设置高亮 -->
+			<!--	<tr class="my-gray-tr" ng-bind="a.id"></tr>   -->	
+					<tr>
+						<td class="my-gray-tr" ng-bind="a.id">	</td>
+						<td class="my-gray-tr" ng-bind="a.createDate">	</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="query-result-div" ng-bind-html="a.text | highlight">
+						</td>
+					 </tr> 
+					<tr class="konghang"> </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>    
+  
+  
+	<!-- 右侧边栏 -->
+	<div class="list-group">
+		<!-- 右侧边栏的标题，设置为div，不能设置为可以点击的button -->
+		<div class="list-group-item black-fenlei-div"> 
+			<p class="list-group-item-heading">分类</p>
+		</div>
+		<button id="quanbu" ng-click="showAllPassages('全部')" class="list-group-item active">
+			<p class="list-group-item-heading">全部</p>
+		</button>
+		<button id="tigang" ng-click="showAllPassages('提纲')" class="list-group-item">
+			<p class="list-group-item-heading">提纲</p>
+		</button>
+		<button id="guandian" ng-click="showAllPassages('观点')" class="list-group-item">
+			<p class="list-group-item-heading">观点</p>
+		</button>
+		<button id="qita" ng-click="showAllPassages('其他')" class="list-group-item">
+			<p class="list-group-item-heading">其他</p>
+		</button>
+		<button id="wdsc" ng-click="showAllPassages('我的收藏')" class="list-group-item">
+			<p class="list-group-item-heading">我的收藏</p>
+		</button>
+	</div>
+</div>

@@ -1,0 +1,131 @@
+.personalCenter-left {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 15%;
+  height:500px;
+  padding-top:15px;
+}
+
+/*右边白色部分*/
+.personalCenter-right {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 84%;
+  height:500px;
+}
+
+/*用户信息和功能权限两个大的按钮*/
+.mybtn-block {
+  border:none;
+  font-family: '微软雅黑';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  height: 50px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+/* 未被选中的block button*/
+.unactiveBlock-Btn {
+   background-color: rgba(242, 242, 242, 1);
+}
+/* 已被选中的block button*/
+.activeBlock-Btn {
+	color: #FFFFFF;
+	background-color: rgba(102, 102, 102, 1);
+}
+
+/*右侧中间的表格*/
+.myMiddle-form {
+  margin:0 auto;
+  vertical-align: middle;
+  padding: 100px 200px;
+}
+
+/*表的标题:用户信息或者功能权限*/
+.myTableName {
+  font-family: '宋体 Bold', '宋体 常规', '宋体';
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  color: #666666;
+  margin-left: 5px;
+}
+/*用户名+输入框为一栏*/
+.myForm-group{
+  margin-bottom:10px;
+}
+/*label的背景*/
+.myformLabel-div {
+  width: 120px;
+  height: 60px;
+  padding-top:20px;
+  padding-bottom:20px;
+  text-align:right;
+  background-color: rgba(248, 248, 248, 1);
+  margin-right: 2px;
+  margin-bottom: 2px;
+  
+}
+/*label的字体*/
+.myformLabel-text {
+  font-family: '宋体 Bold', '宋体 常规', '宋体';
+  font-weight: 700;
+  color: #666666;
+  height: 20px;
+}
+
+/*输入框的背景*/
+.myformInput-div {
+   width: 400px;
+  height: 60px;
+  padding-top:15px;
+  padding-bottom:15px;
+  text-align:center;
+  background-color: rgba(248, 248, 248, 1);
+  margin-bottom: 2px;
+}
+
+.myformRadio-div {
+  width: 400px;
+  height: 60px;
+  padding-top:15px;
+  padding-bottom:15px;
+  text-align:center;
+  background-color: rgba(248, 248, 248, 1);
+  margin-bottom: 2px;
+}
+
+.myformInput-text {
+    width: 350px;
+    height: 30px;
+}
+
+.btnsUnderForm-div {
+  margin-top: 1rem;
+}
+
+.bottomRight1-btn {
+  margin-left:380px;
+  margin-right:40px;
+}
+
+.jiantou {
+    position: absolute;
+    left: 23px;
+    margin-top: 36px;
+    z-index: 100;
+    width:10px;
+    height:15px;
+    background-image: url(/onlyofficeeditor/images/personalCenter/jiantou_white.png);
+}
+
+.myRadio {
+  margin-right: 17px;
+}
+.radio-inline{
+  margin-right: 22px;
+}

@@ -1,0 +1,78 @@
+/*head下面高度较小的搜索区*/
+.search-div-sm {
+  height: 100px;
+}
+
+
+.common-btn {
+  background-repeat: no-repeat;
+  width: 17px;
+  height: 18px;
+  margin: 10px;
+  display: block;
+}
+.collected-btn{
+  background-image:url(../images/paperList/collected.png);
+}
+.edit-btn{
+  background-image:url(../images/paperList/edit.png);
+}
+
+
+.download-btn{
+  background-image:url(../images/paperList/download.png);
+}
+
+.collect-btn{
+  background-image:url(../images/paperList/collect.png);
+}
+
+.remove-btn{
+  background-image:url(../images/majorPaper/deleteItem.png);
+}
+
+/*核心文章的在线查看——小眼睛图标*/
+.view-btn{
+  background-image:url(../images/majorPaper/eye.png);
+}
+
+/*公文列表显示栏“操作”宽度*/
+.fourBtn-td-document {
+  width:120px;
+}
+
+/*核心文章显示栏“操作”宽度*/
+.fourBtn-td-coreDocument {
+  width:60px;
+}
+
+.itemNum-font{
+    height: 19px;
+    font-family: '微软雅黑';
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.orderByTime{
+  border: none;
+  white-space:nowrap; /**不换行**/
+  margin-top: 2px;
+}
+
+button:focus {
+    outline: none;
+}
+
+/*新建公文对话框*/
+#my_dialog{
+	font-size: 15px;
+}
+
+#my_dialog #create_name,#my_dialog #create_author, #my_dialog #create_type{
+	width: 150px;
+}
+
+#my_dialog #create_type{
+	height:28px;
+}

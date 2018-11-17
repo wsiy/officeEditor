@@ -1,0 +1,91 @@
+﻿/*登录页面的系统名“智能公文辅助决策系统”*/
+.loginSystemName {
+    font-family: '微软雅黑 Bold', '微软雅黑';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 36px;
+    margin-top: 5px;
+}
+/*登录页面的*/
+.loginHead-div {
+  padding-top: 10px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+/*整个页面中的一整部分*/
+.loginBody-div {
+  height: 582px;
+  font-size: 16px;
+  border: none;
+  border-radius: 0px;
+  background-image: url(../images/loginPage/background.png);
+}
+
+/*中间的大对号*/
+.duihao-img {
+  width: 557px;
+  height:488px;
+}
+/*登录页面的表格背景和字体*/
+.loginForm-div {
+    margin-top: 128px;
+    margin-right: 80px;
+    width: 310px;
+	height: 366px;
+	font-size: 16px;
+	font-family: '微软雅黑 Bold', '微软雅黑';
+	background: linear-gradient(135deg, 
+	            rgba(255, 255, 255, 1) 0%, 
+	            rgba(255, 255, 255, 1) 0%, 
+	            rgba(153, 153, 153, 1) 100%, 
+	            rgba(153, 153, 153, 1) 100%);
+    padding:10px 35px;
+}
+
+/*登录页面的输入账号密码的大框*/
+.myform-control-lg {
+  height: 45px;
+  width: 240px;
+}
+
+
+/*表格名字：用户登录*/
+.form-name {
+    font-weight: 700;
+    color: #666666;
+}
+
+/*忘记密码*/
+.forgetPwd {
+  font-size: 14px;
+  color: black;
+}
+
+/*登录页面的输入验证码的小框*/
+.verify-input{
+  height: 43px;
+  width: 135px;
+  margin-top:0px;
+}
+/*登录页面的显示验证码的按钮*/
+.verify-code {
+  height: 43px;
+  width: 79px;
+  readonly: readonly;
+}
+
+/*自动登录*/
+.autoLogin {
+  font-size: 14px;
+}
+
+/*登录的按钮*/
+.loginSubmit-btn{
+  color: #fff;
+  background-color: rgba(153, 153, 153, 1);
+  border: none;
+  border-radius: 4px;
+  width: 240px;
+  height: 45px;
+}    

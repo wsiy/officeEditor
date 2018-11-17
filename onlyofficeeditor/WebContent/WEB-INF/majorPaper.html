@@ -1,0 +1,155 @@
+<div class="white-bg  search-div-lg search-div">
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 起始时间:</div>
+    <div class="col-1"> 
+    	<input id="begin_date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    </div>
+     <div class="col-1"> </div>
+    <div class="col-1"> 结束时间:</div>
+    <div class="col-1"> 
+        <input id="end_date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    </div>
+    <div style="display:inline; padding-left:100px;">
+           <button ng-click="querycorebyDate()">检索</button>    
+     </div>
+  </div>
+  <hr>
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 文种:</div>
+    <div class="col-11"> 
+      <button ng-click="querycoreAll()">全部</button>
+      <button ng-click="querycoreAllReport('总结报告')">总结报告</button>
+      <button ng-click="querycoreAllReport('辅助授课')">辅助授课</button>
+      <button ng-click="querycoreAllReport('其他')">其他</button>
+    </div> 
+  </div>
+  <hr>
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 分类:</div>
+    <div class="col-11"> 
+      <button ng-click="querycoreAll()">全部</button>
+      <button ng-click="querycorebyclass('提纲')">提纲</button>
+      <button ng-click="querycorebyclass('观点')">观点</button>
+      <button ng-click="querycorebyclass('其他')">其他</button>
+    </div> 
+  </div>
+  <hr>
+  <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 表述:</div>
+    <div class="col-11"> 
+      <button ng-click="querycoreAll()">全部</button>
+      <button ng-click="querycorebyexpress('经验体会')">经验体会</button>
+      <button ng-click="querycorebyexpress('重要意义')">重要意义</button>
+      <button ng-click="querycorebyexpress('问题不足')">问题不足</button>
+      <button ng-click="querycorebyexpress('认识举措')">认识举措</button>
+      <button ng-click="querycorebyexpress('后勤保障')">后勤保障</button>
+    
+    </div> 
+  </div>
+ 
+</div>
+
+<div class="white-bg showPaper-div">
+    <nav class="function-bar row-noMargin">
+      <div class="col-1">
+          <button ng-click="create()" class="my-btn-blue">新建</button>
+      </div>
+      <div class="col-7">
+          <button class="my-btn-gray" ng-click="multidelete()">删除</button>
+      </div>
+      <a class="myclass" id="count" name="{{documents.length}}" value="hhh" style="display:none"></a>
+      <div class="col-1">
+          <button class="orderByTime" ng-click="changeDirection()">时间
+        <img class="down" src="./images/paperList/down.png">
+        <img class="up noDisplay" src="./images/paperList/up.png"></button>
+      </div>
+      <form class="form-inline">
+          <input id="corefilesearch" placeholder="请输入文件名搜索">
+          <button ng-click="querycorebyName()" type="submit">Search</button>
+      </form>
+    </nav>
+<div id="hideorshow" style="display: none">
+    <div> 
+    <input id="create_date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    <select id="create_filename" ng-change="changefilename()" ng-model="filename"></select>
+    <select id="create_author" ng-change="changeauthor()" ng-model="author"></select>
+    <select id="create_type" ng-change="changetype()" ng-model="type"></select>
+    <select id="create_class" ></select>
+    <select id="create_expre" ></select>
+    <input id="create_content" type="text" name="create_content"/>
+    <input id="create_char" type="text" name="create_char"/>
+    <input id="create_anay" type="text" name="create_anay"/>
+    </div>
+    </br>
+   <div style="float: right;">
+       <button class="my-btn-gray" ng-click="create_cancel()">取消</button>
+       <button class="my-btn-blue" ng-click="create_save()">保存</button>
+    </div>
+      </br>
+       </br>
+</div>
+    <div class="showPaperDetail-sm">
+    <table class="table table-striped  table-bordered ">
+      <thead class="bluetable-th">
+        <tr>
+          <th></th>
+          <th>时间</th>
+          <th>文件名</th>
+          <th>作者</th>
+          <th>文种</th>
+          <th>分类</th>
+          <th>表述</th>
+          <th>内容</th>
+          <th>特点</th>
+          <th>分析</th>
+          <th>+</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="a in documents">
+          <td ><input id="multi_{{$index}}" name="{{a.ID}}" value="{{$index}}" type="checkbox"/></td>
+          <td ng-bind="a.createDate"></td>
+          <td ng-bind="a.document.fileName" class="th-left"></td>
+          <td ng-bind="a.document.author"></td>
+          <td ng-bind="a.document.documentType.name"></td>
+          <td ng-bind="a.classfication.name"></td>
+          <td ng-bind="a.expression.name"></td>
+          <td ng-bind="a.content"></td>
+          <td ng-bind="a.character"></td>
+          <td ng-bind="a.analyse"></td>
+          <!-- <td ng-bind="a.ID"></td> -->
+          <td></td>
+          
+          <td>
+            <div class="row-noMargin fourBtn-td">
+              <a title="编辑" class="edit-btn common-btn" ></a>
+              <a title="下载" ng-click="download(a.ID)" class="download-btn common-btn"></a>
+              <!-- <a title="收藏" ng-click="collect(a.ID)"  class="collect-btn common-btn"></a> -->
+              <a title="删除" ng-click="delete($index, a.ID)"  class="remove-btn common-btn"></a>              
+            </div>
+          </td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+    <div class="row-noMargin">
+      <div>
+              共 {{documents.length}}条
+      </div>
+      <nav aria-label="Page navigation example" class="col-11">
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

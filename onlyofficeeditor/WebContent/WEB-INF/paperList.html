@@ -1,0 +1,93 @@
+<div class="white-bg search-div search-div-sm ">
+ <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 时间:</div>
+    <div class="col-1"> 
+        <input id="date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    </div>
+    <div style="display:inline; padding-left:100px;">
+           <button ng-click="querybyDate()">检索</button>    
+     </div>
+  </div>
+  <hr>
+  <div class="row-noMargin searchKeyword" >
+    <div class="col-1"> 文种:</div>
+    <div class="col-11"> 
+      <button ng-click="queryAll()">全部</button>
+      <button ng-click="queryAllReport('总结报告')">总结报告</button>
+      <button ng-click="queryAllReport('辅助授课')">辅助授课</button>
+      <button ng-click="queryAllReport('其他')">其他</button>
+    </div> 
+  </div>
+</div>
+
+<div class="white-bg showPaper-div ">
+  <nav class="function-bar row-noMargin">
+    <div class="col-1">
+         <input type="button" class="my-btn-blue" value="新建" ng-click="newFile()">
+    </div>
+    <div class="col-7">
+        <button class="my-btn-blue">导入</button>
+    </div>
+    <div class="col-1">
+        <button class="orderByTime" ng-click="changeDirection()">时间
+        <img class="down" src="./images/paperList/down.png">
+        <img class="up noDisplay" src="./images/paperList/up.png"></button>
+    </div>
+    <form class="form-inline">
+        <input id="filesearch" placeholder="请输入文件名搜索">
+        <button type="submit" ng-click="querybyName()">Search</button>
+    </form>
+  </nav>
+  <div class="showPaperDetail">
+    <table class="table table-striped  table-bordered ">
+      <thead class="bluetable-th">
+        <tr>
+          <th>序号</th>
+          <th>文件名</th>
+          <th>文种</th>
+          <th>时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="a in documents">
+          <td ng-bind="{{$index}}+1"></td>
+          <td ng-bind="a.fileName" class="th-left"></td>
+          <td ng-bind="a.documentType.name"></td>
+          <td ng-bind="a.createDate"></td>
+          <td>
+            <div class="row-noMargin fourBtn-td">
+              <a title="编辑" class="edit-btn common-btn" ></a>
+              <a title="下载" ng-click="download(a.ID)" class="download-btn common-btn"></a>
+              <a ng-if="a.collected==1" id="collect_{{a.ID}}" title="收藏" ng-click="collect(a.ID)"  class="collected-btn common-btn"></a >
+              <a ng-if="a.collected==0" id="collect_{{a.ID}}" title="收藏" ng-click="collect(a.ID)"  class="collect-btn common-btn"></a >
+              <a title="删除" ng-click="delete($index, a.ID)"  class="remove-btn common-btn"></a>              
+            </div>
+          </td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+    
+    <div class="row-noMargin">
+      <div>
+              共 {{documents.length}}条
+      </div>
+      <nav aria-label="Page navigation example" class="col-11">
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+   
+  </div>
+  
+</div>

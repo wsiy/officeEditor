@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>智能公文辅助决策系统</title>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="css/bootstrap-4.0.0-dist/bootstrap.min.css">
+    <!-- onlyOffice's css -->
+    <link rel="stylesheet" type="text/css" href="./css/onlyOffice/stylesheet.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/onlyOffice/jquery-ui.css" /> -->
+     <!--     新增 -->
+    <link rel="stylesheet" type="text/css" href="./css/onlyOffice/jquery-ui.min.css" />
+    
+    <!-- my CSS file-->
+    <link rel="stylesheet" href="css/paperList.css">
+    <link rel="stylesheet" href="css/majorPaper.css">
+    <link rel="stylesheet" href="css/onlineWriting.css">
+    <link rel="stylesheet" href="css/personalCenter.css">
+    <link rel="stylesheet" href="css/common.css">
+    <!-- 警告框 -->
+    <link type="text/javascript" href="./hubSpotMessenger/css/messenger.css">
+    <link type="text/javascript" href="./hubSpotMessenger/css/messenger-theme-future.css">
+    <!-- bootstrp -->
+    <script type="text/javascript" src="./scripts/bootstrap/jquery-1.11.3.min.js"></script>
+    <!--     新增 -->
+	<script type="text/javascript" src="./scripts/onlyOffice/jquery-ui.min.js"></script>
+
+</head>
+
+<body ng-app="mainApp" class="scroll-hidden">
+    <div class="container">
+        <nav class="navbar  nav-justified navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+          <img src="./images/loginPage/guohui.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                        智能公文辅助决策系统
+        </a>
+            <a class="nav-item nav-link" id="paperList" href="#/paperList">公文列表</a>
+            <a class="nav-item nav-link" id="majorPaper" href="#/majorPaper">核心文章</a>
+            <a class="nav-item nav-link" id="onlineWriting" href="#/onlineWriting">在线写作</a>
+            <a class="nav-item nav-link" id="paperAnalyse" href="#/paperAnalyse">文章分析</a>
+            <a class="nav-item nav-link" id="documentPreparation" href="#/documentPreparation">文书拟制</a>
+            <a class="nav-item nav-link" id="dataBackup" href="#/dataBackup">数据备份</a>
+            <a class="nav-item nav-link" id="personalCenter" href="#/personalCenter">个人中心</a>
+        </nav>
+        <div id="msg"></div>
+        <div ng-view></div>
+        <div class="footer foot-row row-noMargin">
+            <div class="col-1">
+                <img  src="images/loginPage/zktj.png" width="44px" height="54px">
+            </div>
+            <div class="col-10 ">
+                <p class="footword-div">
+                    <span>本站由&nbsp;</span>
+                    <span>中科天玑</span>
+                    <span>&nbsp;提供技术支持与安全服务</span>
+                </p>
+                <p class="footword-div">
+                    <span>&nbsp;@中科天玑数据科技股份有限公司&nbsp; &nbsp; ▏&nbsp; 备案号：京ICP备11029513号&nbsp; &nbsp;&nbsp; ▏&nbsp;&nbsp; 联系电话：010-688-0088</span>
+                </p>
+            </div>
+            <div class="col-1">
+                <img class="qrCode-img" src="images/loginPage/erweima.png" width="36px" height="36px">
+                <p>关注我们</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 在线编辑的弹出框  -->
+    <div id="mainProgress">
+        <div id="uploadSteps">
+            <span id="step1" class="step">1. 加载文件</span>
+            <br />
+            <span id="step2" class="step">2. 转换文件格式</span>
+            <br />
+            <span id="step3" class="step">3. 加载编辑器脚本</span>
+            <input type="hidden" name="hiddenFileName" id="hiddenFileName" />
+            <br />
+            <br />
+            <div class="error-message">
+            <span></span>
+            <br/>
+                                提交失败！请您再次尝试选择其他文件提交!
+            </div>
+        </div>
+        <iframe id="embeddedView" src="" height="345px" width="600px" frameborder="0" scrolling="no" allowtransparency></iframe>
+        <br />
+        <div id="beginView" class="button disable">查看文档</div>
+        <div id="beginEdit" class="button disable">编辑文档</div>
+        <div id="cancelEdit" class="button gray">取消操作</div>
+    </div>
+    
+    
+    
+
+    <!-- bootstrp -->
+    <script type="text/javascript" src="./scripts/bootstrap/jquery-1.11.3.min.js"></script>
+    <!--     新增 -->
+	<script type="text/javascript" src="./scripts/onlyOffice/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./scripts/bootstrap/bootstrap.js"></script>
+   
+    <!-- 警告框 -->
+    <script type="text/javascript" src="./hubSpotMessenger/js/messenger.min.js"></script>
+    
+    <!-- angularJS file -->
+    <script type="text/javascript" src="./scripts/angularJS/angular.min.js"></script>
+    <script type="text/javascript" src="./scripts/angularJS/angular-route.min.js"></script>
+    <script type="text/javascript" src="./scripts/angularJS/upload.js"></script>
+    <script type="text/javascript" src="./scripts/angularJS/angular-cookies.min.js"></script>
+    <!-- my js script -->
+    <script type="text/javascript" src="./scripts/myScript/Document.js"></script>
+    <script type="text/javascript" src="./scripts/myScript/index.js"></script>
+    <script type="text/javascript" src="./scripts/myScript/majorPaper.js"></script>
+    <script type="text/javascript" src="./scripts/myScript/paperList.js"></script>
+    <script type="text/javascript" src="./scripts/myScript/personalCenter.js"></script>
+    <script type="text/javascript" src="./scripts/myScript/AISearch.js"></script>
+    <script type="text/javascript" src="./scripts/myScript/onlineWriting.js"></script>
+    <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+   
+    <!-- onlyOffice -->
+   <!--  <script type="text/javascript" src="./scripts/onlyOffice/jquery-ui.js"></script> -->
+    
+    <script type="text/javascript" src="./scripts/onlyOffice/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="./scripts/onlyOffice/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="./scripts/onlyOffice/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="./scripts/onlyOffice/jquery.dropdownToggle.js"></script>
+    
+   
+	
+    <!-- onlyOffice api的脚本，这里使用硬编码了，后期考虑根据配置文件修改-->
+    <!-- <script type="text/javascript" src="http://10.5.0.196:9000/web-apps/apps/api/documents/api.js"></script> -->
+    <script type="text/javascript" src="http://localhost:9000/web-apps/apps/api/documents/api.js"></script>
+    
+    <!-- onlyOffice用到的js变量 -->
+    <script type="text/javascript">
+    var ConverExtList = ".docm,.dotx,.dotm,.dot,.doc,.odt,.fodt,.xlsm,.xltx,.xltm,.xlt,.xls,.ods,.fods,.pptm,.ppt,.ppsm,.pps,.potx,.potm,.pot,.odp,.fodp,.rtf,.mht,.html,.htm,.epub";
+    var EditedExtList = ".docx,.xlsx,.csv,.pptx,.ppsx,.txt";
+    var UrlConverter = "./IndexServlet?type=convert";
+    var UrlEditor = "./EditorServlet";
+    var DownloadServletURL = "./DownloadServlet";
+    var responseData;
+    var docserviceApiUrl;
+    </script>
+</body>
+
+</html>

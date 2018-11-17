@@ -1,0 +1,118 @@
+<div class="white-bg search-div search-div-sm ">
+ <div class="row-noMargin searchKeyword">
+    <div class="col-1"> 时间:</div>
+    <div class="col-1"> 
+        <input id="date" class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"> 
+    </div>
+    <div style="display:inline; padding-left:40px;">
+           <button ng-click="querybyDate()">检索</button>    
+     </div>
+  </div>
+  <hr>
+	  <div class="row-noMargin searchKeyword" >
+	    <div class="col-1"> 文种:</div>
+	    <div class="col-11"> 
+	      <button  ng-click="initPage()">全部</button>
+	      <button  ng-click="queryAllReport('总结报告')">总结报告</button>
+	      <button  ng-click="queryAllReport('辅助授课')">辅助授课</button>
+	      <button  ng-click="queryAllReport('其他')">其他</button>
+	    </div> 
+	  </div>
+	<!--  新增 -->
+	<div id="my_dialog" title="新建公文"  style="display: none" >
+    <form>
+        <p>文件名：<input type="text" id="create_name" /></p>
+        <p>作&nbsp;&nbsp;者&nbsp;&nbsp;：<input type="text" id="create_author" /></p>
+        <p>文&nbsp;&nbsp;种&nbsp;&nbsp;：<select id="create_type" >
+                <option value ="总结报告">总结报告</option> 
+                <option value ="辅助授课">辅助授课</option> 
+                <option value ="其他">其他</option> 
+                </select>
+        </p>
+        <div style="float: right;">
+       <button class="my-btn-gray" ng-click="create_paper_cancel()">取消</button>
+       <button class="my-btn-blue" ng-click="create_paper_save()">保存</button>
+    </div>
+    </form>
+    
+</div>
+	
+</div>
+
+<div class="white-bg showPaper-div ">
+  <nav class="function-bar row-noMargin">
+    <div class="col-1">
+         <input type="button" class="my-btn-blue" value="新建" ng-click="newFile()">
+    </div>
+    <div class="col-7">
+        <input type="button" class="my-btn-blue" value="导入" ng-click="importFileOnPaperList()">
+    </div>
+    <div class="col-1">
+        <button class="orderByTime"  ng-click="changeDirection()">时间
+        <img class="down" src="./images/paperList/down.png">
+        <img class="up noDisplay" src="./images/paperList/up.png"></button>
+    </div>
+    <form class="form-inline">
+        <input id="filesearch" placeholder="请输入文件名搜索">
+        <button type="submit" ng-click="querybyName()">Search</button>
+    </form>
+  </nav>
+  
+  
+	<div class="showPaperDetail">
+	    <table class="table table-striped  table-bordered ">
+	      <thead class="bluetable-th">
+	        <tr>
+	          <th>序号</th>
+	          <th>文件名</th>
+	          <th>文种</th>
+	          <th>时间</th>
+	          <th>操作</th>
+	        </tr>
+	      </thead>     
+	      <tbody>
+	      
+<!-- 	      <h1 ng-repeat="a in pb.perList">{{a.fileName}}555</h1> -->
+	      
+	        <tr ng-repeat="a in pb.perList">
+	         <td ng-bind="pb.startIndex+{{$index}}+1"></td>
+	          <td ng-bind="a.fileName" class="th-left"></td>
+	          <td ng-bind="a.documentType.name"></td>
+	          <td ng-bind="a.createDate"></td>
+	          <td>
+	            <div class="row-noMargin fourBtn-td-document">
+	              <!-- <a title="编辑" class="edit-btn common-btn" ></a>
+	              <a title="下载" ng-click="download(a.ID)" class="download-btn common-btn"></a>
+	              <a ng-if="a.collected==1" id="collect_{{a.ID}}" title="收藏" ng-click="collect($index,a.ID)"  class="collected-btn common-btn"></a >
+	              <a ng-if="a.collected==0" id="collect_{{a.ID}}" title="收藏" ng-click="collect($index,a.ID)"  class="collect-btn common-btn"></a >
+	              <a title="删除" ng-click="delete($index, a.ID)"  class="remove-btn common-btn"></a>      -->
+	              
+	              <a title="编辑" ng-click="editFile(a.fileName+'.docx')" class="edit-btn common-btn" ></a>
+	              <!-- <a title="编辑" ng-click="editFile('liuyy.docx')" class="edit-btn common-btn" ></a> -->
+	              <a title="下载"  href="./DownloadServlet?fileNameWithExt={{a.fileName}}.docx" download="{{a.fileName}}.docx" class="download-btn common-btn"></a>
+	              <a ng-if="a.collected==1" id="collect_{{a.ID}}" title="收藏" ng-click="collect($index,a.ID)"  class="collected-btn common-btn"></a >
+	              <a ng-if="a.collected==0" id="collect_{{a.ID}}" title="收藏" ng-click="collect($index,a.ID)"  class="collect-btn common-btn"></a >
+	              <a title="删除" ng-click="delete($index, a.ID, a.fileName)"  class="remove-btn common-btn"></a>                 
+	            </div>
+	          </td>
+	        </tr>
+	      </tbody>
+	    </table>
+	    
+		<div id="pagingSection" style="float:right">
+			<a ng-href="" ng-click="firstPage()">首页</a>  
+			<a ng-href="" ng-click="previousPage()">上一页</a> 
+			<a ng-href="" ng-click="nextPage()">下一页</a>   
+			<a ng-href="" ng-click="lastPage()">尾页</a>	
+		</div>
+		<div style="float:left"> 共 {{pb.totalRecord}}条</div>
+		<div align="center"> 第{{pb.pageNum}}页（共{{pb.totalPage}}页）</div>
+	</div>
+</div>
+
+    
+
+
+
+
+  
