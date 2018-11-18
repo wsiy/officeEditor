@@ -8,13 +8,13 @@
         <!-- 数据库配置 -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/onlyoffice?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;zeroDateTimeBehavior=convertToNull</property>
+<!--    <property name="connection.url">jdbc:mysql://localhost:3306/onlyoffice?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;zeroDateTimeBehavior=convertToNull</property>  
         <property name="connection.username">root</property>
-        <property name="connection.password">123456</property>
+        <property name="connection.password">123456</property>  -->
 <!--         <property name="connection.url">jdbc:mysql://10.5.0.218:33380/onlyoffice?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;zeroDateTimeBehavior=convertToNull</property> -->
-<!--         <property name="connection.url">jdbc:mysql://159.226.40.82:33380/onlyoffice?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;zeroDateTimeBehavior=convertToNull</property> -->
-<!--         <property name="connection.username">root</property> -->
-<!--         <property name="connection.password">qazwsx</property> -->
+         	<property name="connection.url">jdbc:mysql://159.226.40.82:33380/onlyoffice?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;zeroDateTimeBehavior=convertToNull</property>  
+        <property name="connection.username">root</property> 
+        <property name="connection.password">qazwsx</property> 
 
         <!-- c3p0配置 -->
         <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>

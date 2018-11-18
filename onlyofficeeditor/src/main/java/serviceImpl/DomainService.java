@@ -127,7 +127,8 @@ public class DomainService implements IDomainService{
 
 	@Override
 	public PageBeanDocument getDocumentsByName(String fileName) {
-		 List<Document> pbDocument = documentDao.findLike("fileName", fileName, "ID", true);
+		System.out.println("DomainService.getDocumentsByName()" + fileName+"模糊查找");
+		 List<Document> pbDocument = documentDao.findLikeChinese("fileName", fileName, "ID", false);
 		 if( pbDocument.size() == 0) {
 				PageBeanDocument pb = new PageBeanDocument( );
 				return pb;
@@ -270,7 +271,7 @@ public class DomainService implements IDomainService{
 
 	@Override
 	public PageBeanCoreDocument getCoreDocumentsByName(String fileName) {
-		List<Document> documents = documentDao.findLike("fileName", fileName, "ID", true);
+		List<Document> documents = documentDao.findLikeChinese("fileName", fileName, "ID", true);
 		System.out.println("documents"+ documents.size());
 		List<CoreDocument> pbCoreDocument = coreDucumentDao.getCoreDocByDoc(documents);
 		if( pbCoreDocument.size() == 0) {

@@ -100,7 +100,23 @@ public class BaseDao<T, PK extends Serializable> extends HibernateDaoSupport imp
 		Assert.hasText(orderBy);
 		return findBy(orderBy, isAsc, Restrictions.like(propertyName, value));
 	}
-
+	
+	/**
+     * wsy 中文模糊查找
+     * @param propertyName 属性名
+     * @param value  属性值
+     * @param orderBy 排序的属性名
+     * @param isAsc true代表升序 false代表降序
+     * @return 满足条件的全部对象
+     */
+	@Override
+	public List<T> findLikeChinese(String propertyName, Object value, String orderBy, boolean isAsc) {
+		Assert.hasText(propertyName);
+		Assert.hasText(orderBy);
+		Assert.hasText(propertyName);
+		Assert.hasText(orderBy);
+		return findBy(orderBy, isAsc, Restrictions.like(propertyName, "%"+value+"%"));
+	}
 	/**
 	 * 刷新缓存,执行所有待执行的数据库操作
 	 */

@@ -71,6 +71,16 @@ public interface IBaseDao<T, PK extends Serializable> {
 	public List<T> findLike(String propertyName, Object value, String orderBy, boolean isAsc);
 
 	/**
+	 * 中文模糊查询
+	 * @param propertyName
+	 * @param value
+	 * @param orderBy
+	 * @param isAsc
+	 * @return
+	 */
+	public List<T> findLikeChinese(String propertyName, Object value, String orderBy, boolean isAsc);
+
+	/**
 	 * 保存对象
 	 * 
 	 * @param entity
@@ -114,5 +124,6 @@ public interface IBaseDao<T, PK extends Serializable> {
 	 * 
 	 */
 	public void clear();
+
 
 }
